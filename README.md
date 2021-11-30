@@ -87,5 +87,11 @@
  python preprocess.py -mode format_to_bert -raw_path ../json_data -save_path ../bert_data
  ```
  
- ### 2. Train
- 
+ ### 2. Train and Test
+  - 모델 훈련을 시작하기 전에, ETRI 사이트에서 KorBERT 사용 허가를 받아야 합니다. 허가를 받았다면, 첫번째 모델을 다운받아 /content/ETRIBert 폴더에 압축을 풀어주면 됩니다.
+  - Train / Validation / Test 모두 /src/train.py를 이용해 실행되게 됩니다.
+  - 아래 코드는 Classifier을 이용해 학습시키는 코드 예시입니다. 자세한 파라미터 세팅은 documentation.pdf에 적혀있습니다.
+  ```
+  python train.py -mode train -encoder classifier -dropout 0.1 -bert_data_path ../bert_data/korean -model_path ../models/ -lr 2e-3 -visible_gpus 0 -gpu_ranks 0 -world_size 1 -report_every 50 -save_checkpoint_steps 1000 -batch_size 2000 -decay_method noam -train_steps 30000 -accum_count 1 -log_file ../logs/training_log.txt -use_interval true -warmup_steps 6000 -bert_model ../content/ETRIBert -bert_config_path ../content/ETRIBert/bert_config.json -temp_dir ./temp
+  ```
+  - 실제 모델 학습 및 테스트의 과정은 /src/train.ipynb에 작성되어 있습니다. 테스트를 진행하기 위해서는 /models/model_builder.py 파일에서 ``` # for test only ```로 주석처리된 부분을 해제하고 실행해야만 합니다.
