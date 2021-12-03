@@ -31,9 +31,15 @@
   </tr>
   <tr>
     <td class="tg-0pky">KoBert+Transformer</td>
-    <td class="tg-0pky">15.85</td>
-    <td class="tg-0pky">5.80</td>
-    <td class="tg-0pky">15.27</td>
+    <td class="tg-0pky">22.66</td>
+    <td class="tg-0pky">8.79</td>
+    <td class="tg-0pky">21.68</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">bert-kor-base+Transformer</td>
+    <td class="tg-0pky">25.15</td>
+    <td class="tg-0pky">9.82</td>
+    <td class="tg-0pky">24.04</td>
   </tr>
   <tr>
     <td class="tg-0pky">KorBert+Classifier</td>
